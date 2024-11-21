@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UserTable from './tables/UserTable';
 import AddUserForm from './forms/AddUserForm';
+import EditUserForm from './forms/EditUserForm';
 
 function App() {
 
@@ -53,6 +54,25 @@ function App() {
         <div className='flex-large'>
           <h2>View users</h2>
           <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
+
+    <div clasName="flex-large">
+      {editing ? (
+        <div>
+          <h2>Edit user</h2>
+          <EditUserForm
+            setEditing={setEditing}
+            currentUser={currentUser}
+            updateUser={updateUser}
+          />
+        </div>
+      ) : (
+        <div>
+          <h2>Add user</h2>
+          <AddUserForm addUser={addUser} />
+        </div>
+      )}
+    </div>
+
         </div>
       </div>
     </div>
